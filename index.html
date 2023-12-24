@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>QRjs</title>
+        <meta http-equiv="" content="" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                <link rel="stylesheet" href="bootstrap-material-design.css">
+	<script type="text/javascript" src="qrcode.js"></script>
+        <style>
+            .name{
+                text-align:center;
+                font-size:49px;
+                color:#4BAE4F;
+                padding-top:24px;
+            }
+            .down{
+             text-align: center;
+             padding-top: 20px;
+  
+            }
+            .down p input{
+            margin-left:440px;
+            width: 530px;
+            margin-top:20px;
+            }
+	    #qrcode{
+	    margin-left: 530px;
+	    }
+	   .select{
+	    text-align: center;
+	    padding-top: 12px;
+	    color:#4BAE4F;
+	    font-size: 17px;
+	    }
+            </style>
+    </head>
+	<body>
+	  <div class="container">
+	    
+	  
+        <div class="name">
+            <b>QRjs</b>
+        </div>
+            <div class="down">
+                
+                 <div id="qrcode">
+		</div>
+                    <p> <input id="qr" class="form-control" placeholder="URL" type="text" onkeypress="makeCode()" onKeyUp="makeCode()" onchange="makeCode()"></p>
+                    <input type="submit" class="btn btn-raised btn-success" value="make QRCode" onclick="makeCode()">
+	</div>
+	<p>
+	<div class="select">
+QRCode Color : 
+       <input id="color" name="colorpicker" type="color" >
+       
+            </div></div>
+<script type="text/javascript">
+
+
+function makeCode () {		
+	var getcolor = document.getElementById("color").value;
+	var Text = document.getElementById("qr").value;	
+	qrcode(Text);
+}
+
+function qrcode (text) {
+	document.getElementById("qrcode").innerHTML = "";
+	var gq = new QRCode(document.getElementById("qrcode"), {
+	width : 280,
+	height : 280,
+	colorDark: color.value,
+	colorLight: "#fafafa",
+});
+	
+	return gq.makeCode(text)
+}
+</script>
+<h2>
+    Developed by Akindele Azeez[ kudos to Qaslat and YK for the support]
+</h2>
+    </body>
+</html>
